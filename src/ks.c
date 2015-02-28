@@ -16,7 +16,6 @@ enum MsgKeys {
 static void canvas_update_proc(Layer *this_layer, GContext *ctx) {
   GRect bounds = layer_get_bounds(this_layer);
 
-  // Draw the 'stalk'
   graphics_context_set_fill_color(ctx, GColorChromeYellow );
   graphics_fill_rect(ctx, GRect(0, bounds.size.h * 3.0 / 5.0, bounds.size.w, 4), 0, GCornerNone);
 }
