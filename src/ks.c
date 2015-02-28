@@ -2,7 +2,7 @@
 
 #define BUFF 64
 #define BACKGROUND_COLOR GColorWhite  
-#define TEXT_COLOR GColorBlack 
+#define TEXT_COLOR GColorBlack
   
 static Window* window;
 static TextLayer* text_layer;
