@@ -1,6 +1,9 @@
 #include <pebble.h>
 
 #define BUFF 64
+#define BACKGROUND_COLOR GColorWhite  
+#define TEXT_COLOR GColorBlack 
+  
 static Window* window;
 static TextLayer* text_layer;
 static TextLayer* s_time_layer;
@@ -10,13 +13,13 @@ static AppSync sync;
 static uint8_t sync_buffer[BUFF];
 
 enum MsgKeys {
-  MONEY = 0x0
+  QUOTE = 0x0
 };
 
 static void canvas_update_proc(Layer *this_layer, GContext *ctx) {
   GRect bounds = layer_get_bounds(this_layer);
 
-  graphics_context_set_fill_color(ctx, GColorChromeYellow );
+  graphics_context_set_fill_color(ctx, TEXT_COLOR);
   graphics_fill_rect(ctx, GRect(0, bounds.size.h * 3.0 / 5.0, bounds.size.w, 4), 0, GCornerNone);
 }
 
@@ -56,7 +59,7 @@ APP_LOG(APP_LOG_LEVEL_DEBUG, "App Sync Success %s", new_tuple->value->cstring);
 static void window_load(Window* window) {
   Layer* window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
-  window_set_background_color(window, GColorOxfordBlue);
+  window_set_background_color(window, BACKGROUND_COLOR);
   text_layer = text_layer_create((GRect) {
     .origin = {0, 0},
     .size   = {bounds.size.w, bounds.size.h}
@@ -64,13 +67,13 @@ static void window_load(Window* window) {
   text_layer_set_text(text_layer, "It was the best of times, it was the worst of times");
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(text_layer, GColorClear);
-  text_layer_set_text_color(text_layer, GColorChromeYellow);
+  text_layer_set_text_color(text_layer, TEXT_COLOR);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   text_layer_set_overflow_mode(text_layer, GTextOverflowModeTrailingEllipsis);
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
   
   Tuplet initial_value[] = {
-    TupletCString(MONEY, "$12,345,678")
+    TupletCString(QUOTE, "Connecting...")
   };
   
   // add a line
@@ -84,7 +87,7 @@ static void window_load(Window* window) {
    // Create time TextLayer
   s_time_layer = text_layer_create(GRect(0, 95, 144, 50));
   text_layer_set_background_color(s_time_layer, GColorClear);
-  text_layer_set_text_color(s_time_layer, GColorChromeYellow);
+  text_layer_set_text_color(s_time_layer, TEXT_COLOR);
   text_layer_set_text(s_time_layer, "00:00");
   
   // Improve the layout to be more like a watchface

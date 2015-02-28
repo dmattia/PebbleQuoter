@@ -6,7 +6,7 @@ Pebble.addEventListener('ready', function() {
 var getQuote = function() {
   var request = new XMLHttpRequest();
   request.open('GET',
-               'https://a6fH6KKCSCeUqHLFqUlwspOOs8OUgploceRxIHps:javascript-key=P6ZPvkJtvscp5ijZtGZX7m9mFMrxXb7pQP3mjE7T@api.parse.com/1/classes/QuoteObject/ORcj7S6PWd',
+               'https://a6fH6KKCSCeUqHLFqUlwspOOs8OUgploceRxIHps:javascript-key=P6ZPvkJtvscp5ijZtGZX7m9mFMrxXb7pQP3mjE7T@api.parse.com/1/classes/QuoteObject/BrAkDhKHNd',
                true);
   request.onload = sendQuote;
   request.send();
@@ -17,6 +17,6 @@ var sendQuote = function() {
   var quote = response.quotes;
   console.log(quote);
   Pebble.sendAppMessage({
-    'money': quote
+    'quote': quote
   });
 };
