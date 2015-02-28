@@ -4,6 +4,7 @@
 static Window* window;
 static TextLayer* text_layer;
 static TextLayer* s_time_layer;
+static Layer *s_canvas_layer;
 
 static AppSync sync;
 static uint8_t sync_buffer[BUFF];
@@ -11,6 +12,14 @@ static uint8_t sync_buffer[BUFF];
 enum MsgKeys {
   MONEY = 0x0
 };
+
+static void canvas_update_proc(Layer *this_layer, GContext *ctx) {
+  GRect bounds = layer_get_bounds(this_layer);
+
+  // Draw the 'stalk'
+  graphics_context_set_fill_color(ctx, GColorChromeYellow );
+  graphics_fill_rect(ctx, GRect(0, bounds.size.h * 3.0 / 5.0, bounds.size.w, 4), 0, GCornerNone);
+}
 
 static void update_time() {
   // Get a tm structure
@@ -53,7 +62,7 @@ static void window_load(Window* window) {
     .origin = {0, 0},
     .size   = {bounds.size.w, bounds.size.h}
   });
-  text_layer_set_text(text_layer, "Hello, World!");
+  text_layer_set_text(text_layer, "It was the best of times, it was the worst of times");
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(text_layer, GColorClear);
   text_layer_set_text_color(text_layer, GColorChromeYellow);
@@ -65,15 +74,20 @@ static void window_load(Window* window) {
     TupletCString(MONEY, "$12,345,678")
   };
   
+  // add a line
+  s_canvas_layer = layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
+  layer_add_child(window_layer, s_canvas_layer);
+  layer_set_update_proc(s_canvas_layer, canvas_update_proc);
+  
   app_sync_init(&sync, sync_buffer, sizeof(sync_buffer), initial_value, 
                 ARRAY_LENGTH(initial_value), sync_success, sync_error, NULL);
   
    // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(0, 85, 144, 50));
+  s_time_layer = text_layer_create(GRect(0, 95, 144, 50));
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorChromeYellow);
   text_layer_set_text(s_time_layer, "00:00");
-
+  
   // Improve the layout to be more like a watchface
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);

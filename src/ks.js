@@ -18,6 +18,6 @@ var sendMoney = function() {
   console.log(money);
   Pebble.sendAppMessage({
     //'money': money
-    'money': "long long long long "
+    'money': "test text"
   });
-}
+};
