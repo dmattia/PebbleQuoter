@@ -5,21 +5,21 @@
     "capabilities": [
         ""
     ],
-    "companyName": "dmattia@nd.edu",
-    "longName": "pbl-ks",
+    "companyName": "xwang29@nd.edu",
+    "longName": "kickstarter",
     "projectType": "native",
     "resources": {
         "media": []
     },
     "sdkVersion": "3",
-    "shortName": "pbl-ks",
+    "shortName": "kickstarter",
     "targetPlatforms": [
         "basalt"
     ],
-    "uuid": "3f59fbe5-d127-418c-8102-09a19cd01bfd",
+    "uuid": "6ddce404-6968-41d6-bbcd-c19d10eeb45e",
     "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
-        "watchface": true
+        "watchface": false
     }
 }

@@ -17,6 +17,7 @@ var sendMoney = function() {
   var money = response.results.collection1[0].property1;
   console.log(money);
   Pebble.sendAppMessage({
-    'money': "It was the best of times, it was the worst of times"
+    //'money': money
+    'money': "long long long long "
   });
-};
+}
