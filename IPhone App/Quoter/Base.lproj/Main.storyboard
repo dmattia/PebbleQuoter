@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SnU-ZJ-wo0">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no more quotes to display" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD7-gv-phF">
+                                <rect key="frame" x="162" y="289" width="276.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="c3v-r0-ywT">
+                                <rect key="frame" x="0.0" y="0.0" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="XD7-gv-phF" secondAttribute="centerY" id="e0p-X0-YnQ"/>
+                            <constraint firstAttribute="centerX" secondItem="XD7-gv-phF" secondAttribute="centerX" id="fbX-e5-fd1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DZM-Ru-oTa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D8o-MM-JBU"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="displayedQuote" destination="XD7-gv-phF" id="ZDM-p5-wJC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="358"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="wxu-Am-qNZ">
+            <objects>
+                <viewController id="aiJ-xb-4kD" customClass="DJMAddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nUW-rG-Ruv"/>
+                        <viewControllerLayoutGuide type="bottom" id="IsT-f4-aMg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sG4-cu-Yer">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnX-SU-eiY">
+                                <rect key="frame" x="284" y="289" width="31.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAD-AD-Mzw">
+                                <rect key="frame" x="285" y="380" width="30" height="30"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Exit:" destination="aiJ-xb-4kD" eventType="touchUpInside" id="Vjt-dx-vEv"/>
+                                    <action selector="goBack" destination="Syr-Xw-0Kw" eventType="touchUpInside" id="kxI-50-li0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="RnX-SU-eiY" secondAttribute="centerY" id="QDW-fr-eqn"/>
+                            <constraint firstItem="IsT-f4-aMg" firstAttribute="top" secondItem="JAD-AD-Mzw" secondAttribute="bottom" constant="190" id="exL-6a-tor"/>
+                            <constraint firstAttribute="centerX" secondItem="RnX-SU-eiY" secondAttribute="centerX" id="hzh-24-01p"/>
+                            <constraint firstAttribute="centerX" secondItem="JAD-AD-Mzw" secondAttribute="centerX" id="lcA-Ev-GId"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Syr-Xw-0Kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847" y="358"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HFk-lB-tKe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SnU-ZJ-wo0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zHe-Kp-m9o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="5Hb-CZ-vUO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyK-je-xAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="481" y="358"/>
+        </scene>
+    </scenes>
+</document>
