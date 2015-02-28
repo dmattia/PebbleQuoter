@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SnU-ZJ-wo0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -33,7 +34,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DZM-Ru-oTa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D8o-MM-JBU"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D8o-MM-JBU">
+                            <connections>
+                                <segue destination="aiJ-xb-4kD" kind="show" id="ORU-0m-ayf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="displayedQuote" destination="XD7-gv-phF" id="ZDM-p5-wJC"/>
@@ -46,6 +51,7 @@
         <!--Add View Controller-->
         <scene sceneID="wxu-Am-qNZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Syr-Xw-0Kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="aiJ-xb-4kD" customClass="DJMAddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nUW-rG-Ruv"/>
@@ -55,35 +61,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnX-SU-eiY">
-                                <rect key="frame" x="284" y="289" width="31.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAD-AD-Mzw">
-                                <rect key="frame" x="285" y="380" width="30" height="30"/>
-                                <state key="normal" title="Exit">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEq-X5-dew">
+                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nff-xd-zE4">
+                                <rect key="frame" x="236" y="405" width="30" height="30"/>
+                                <state key="normal" title="test">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Exit:" destination="aiJ-xb-4kD" eventType="touchUpInside" id="Vjt-dx-vEv"/>
-                                    <action selector="goBack" destination="Syr-Xw-0Kw" eventType="touchUpInside" id="kxI-50-li0"/>
+                                    <action selector="test:" destination="aiJ-xb-4kD" eventType="touchUpInside" id="bdx-az-xlc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="RnX-SU-eiY" secondAttribute="centerY" id="QDW-fr-eqn"/>
-                            <constraint firstItem="IsT-f4-aMg" firstAttribute="top" secondItem="JAD-AD-Mzw" secondAttribute="bottom" constant="190" id="exL-6a-tor"/>
-                            <constraint firstAttribute="centerX" secondItem="RnX-SU-eiY" secondAttribute="centerX" id="hzh-24-01p"/>
-                            <constraint firstAttribute="centerX" secondItem="JAD-AD-Mzw" secondAttribute="centerX" id="lcA-Ev-GId"/>
+                            <constraint firstAttribute="centerY" secondItem="eEq-X5-dew" secondAttribute="centerY" id="Prd-F5-DVh"/>
+                            <constraint firstItem="eEq-X5-dew" firstAttribute="trailing" secondItem="sG4-cu-Yer" secondAttribute="trailingMargin" id="Ruc-5c-Cch"/>
+                            <constraint firstItem="eEq-X5-dew" firstAttribute="leading" secondItem="sG4-cu-Yer" secondAttribute="leadingMargin" id="gaa-ps-eeY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cSO-9p-0Q0"/>
+                    <connections>
+                        <outlet property="textBox" destination="eEq-X5-dew" id="1cF-Ui-gRs"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Syr-Xw-0Kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847" y="358"/>
+            <point key="canvasLocation" x="1963" y="368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HFk-lB-tKe">
