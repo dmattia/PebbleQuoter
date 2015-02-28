@@ -1,0 +1,25 @@
+{
+    "appKeys": {
+        "money": 0
+    },
+    "capabilities": [
+        ""
+    ],
+    "companyName": "dmattia@nd.edu",
+    "longName": "pbl-ks",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "pbl-ks",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "3f59fbe5-d127-418c-8102-09a19cd01bfd",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
