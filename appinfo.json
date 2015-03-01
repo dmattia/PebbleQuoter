@@ -6,20 +6,17 @@
         ""
     ],
     "companyName": "xwang29@nd.edu",
-    "longName": "kickstarter",
+    "longName": "Quoter",
     "projectType": "native",
     "resources": {
         "media": []
     },
-    "sdkVersion": "3",
-    "shortName": "kickstarter",
-    "targetPlatforms": [
-        "basalt"
-    ],
+    "sdkVersion": "2",
+    "shortName": "Quoter",
     "uuid": "6ddce404-6968-41d6-bbcd-c19d10eeb45e",
     "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }
